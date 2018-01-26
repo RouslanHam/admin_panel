@@ -4,7 +4,10 @@
 </head>
 <body>
 <div class="navbar">
-	<a href="profile.php">настройки профиля</a>
+	<a href="editProfile.php?id=me">мой профиль</a>
+	<?php if($isadmin) : ?>
+		<a href="editProfile.php?id=new">добавить пользователя</a>
+	<?php endif ?>
 	<a href="index.php">выйти</a>
 </div>
 <?php if (!empty($users)) : ?>
@@ -23,8 +26,7 @@
     <?php foreach ($users as $user) : ?>
 		<tr>
 			<td><?=$user['id']?></td>
-			<td><a href="#" data-toggle="modal" data-target="#mymodal"><?=$user['login']?></a></td>
-			<td><?=$user['login']?></td>
+			<td><a href="editProfile.php?id=<?=$user['id']?>"><?=$user['login']?></a></td>
 			<td><?=$user['e-mail']?></td>
 			<td><?=$user['fullname']?></td>
 			<td><?=$user['role']?></td>
@@ -34,19 +36,7 @@
 </table>	
 <?php endif ?>
 
-<div class="modal fade" id="mymodal" tadindex="-1" role="dialog" aria-label="mymodal" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="mymodallabel">modal title</h5>
-				<button class="close" type="button" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
+
 <script src="js/bootstrap.min.js"></script> 
 </body>
 </html>

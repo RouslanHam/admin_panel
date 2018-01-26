@@ -13,11 +13,10 @@ $myrow = mysql_fetch_array($result);
 if ($myrow["role"]!=='user' && $myrow["role"]!=='admin') {
 	echo "<p>Вы не пользователь и не администратор</p>".mysql_error(); exit();
 }
-if ($myrow["role"]=='admin') $isadmin=1;
+if ($myrow["role"]=='admin') $isadmin=true;
 	else $isadmin=false;
 
 require_once "template.php";
-
 
 use function template\render;
 //вывод базы данных в таблицу + сортировка
@@ -32,7 +31,7 @@ while ($irow=mysql_fetch_array($result)){
 	$myrow[] = $irow;
 }
 //$myrow = mysql_fetch_array($result);
-$html = render('userpanel.phtml', ['isadmin' => $isadmin, 'users' => $myrow]);
+$html = render('userpanel.phtml', ['users' => $myrow, 'isadmin' => $isadmin]);
 	
 print_r($html);
 

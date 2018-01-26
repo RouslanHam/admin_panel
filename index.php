@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-
+	<div class="col-4 offset-4">
       <form class="form-signin" action="checkSingIn.php" method="post">
         <h2 class="form-signin-heading">Авторизуйтесь</h2>
         <label for="inputLogin" class="sr-only">Login</label>
@@ -17,7 +17,7 @@
         <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
       </form>
-
+	</div>
     </div>
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
