@@ -7,18 +7,9 @@ class Routing {
     //get controllerName, action, paramAction from URL
     $url = $_SERVER['REQUEST_URI'];
     $url = explode('/', $url);
-    $controllerName = 'main';
-    $action = 'index';
-    $paramAction = '';
-    if (!empty($url[1])) {
-      $controllerName = $url[1];
-    }
-    if (!empty($url[2])) {
-      $action = $url[2];
-    }
-    if (!empty($url[3])) {
-      $paramAction = $url[3];
-    }
+    $controllerName = (empty($url[1]) ? 'main' : $url[1]);
+    $action = (empty($url[2]) ? 'index' : $url[2]);
+    $paramAction = (empty($url[3]) ? '' : $url[3]);
 
     //load controller
     $controllerPath = 'controllers/' . $controllerName . '.php';
