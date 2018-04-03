@@ -1,4 +1,8 @@
 # admin_panel
+
+<a href="https://codeclimate.com/github/RouslanHam/admin_panel/maintainability"><img src="https://api.codeclimate.com/v1/badges/d3935bc5e3b93234ae88/maintainability" /></a>
+<a href="https://codeclimate.com/github/RouslanHam/admin_panel/test_coverage"><img src="https://api.codeclimate.com/v1/badges/d3935bc5e3b93234ae88/test_coverage" /></a>
+
 Использован PHP, верстка на bootstrap. <br>
 Страницы: login, список пользователей (для администраторов - добавление новых), редактирование профиля (своего, администратор - любого+удаление).
 <br>
