@@ -19,24 +19,27 @@ class Users extends Controller
     //get parameters filter and sort from sortButton on users list
     //get users list, get role logged user (iAdmin)
     //load page 'users'
-    $data = array();
-    $data['filterLogin'] = '';
-    $data['filterFullName'] = '';
-    $data['filterRole'] = '';
-    $data['sortby'] = '';
     if (isset($_POST['apply'])) {
       $data['filterLogin'] = $_POST['login'];
       $data['filterFullName'] = $_POST['fullName'];
       switch ($_POST['role']) {
         case 'Администратор': $data['filterRole'] = 'admin'; break;
         case 'Пользователь': $data['filterRole'] = 'user'; break;
+        default: $data['filterRole'] = '';
       }
       switch ($_POST['sortby']) {
         case 'Логин': $data['sortby'] = 'login'; break;
         case 'ФИО': $data['sortby'] = 'fullName'; break;
         case 'Роль': $data['sortby'] = 'role'; break;
+        default: $data['sortby'] = '';
       }
+    } else {
+      $data['filterLogin'] = '';
+      $data['filterFullName'] = '';
+      $data['filterRole'] = '';
+      $data['sortby'] = '';
     }
+
     $this->view->filter = $data;
     $this->view->data = $this->model->getUserList($data);
     Session::init();
